@@ -1,4 +1,6 @@
-# SafeTag API — Servlets, Tomcat e JDBC
+
+# Guardian-pt2 — SafeTag API
+## Servlets, Tomcat e JDBC
 
 API REST Java para gerenciar celulares vinculados a tags. Implementa o CRUD de dispositivos do tema SafeTag. O aplicativo Android em ../ENTEC usa esses endpoints; seu login ainda é demonstrativo.
 
@@ -93,5 +95,6 @@ O Tomcat de teste abre uma porta local temporária e fecha ao terminar.
 Implementados: Java, Controller/Service/DAO, CRUD de dispositivos, persistência MySQL e documentação.
 Validados em 13/11/2026: onze testes aprovados, incluindo Tomcat + JDBC + MySQL reais e a independência das conexões fornecidas pelo Singleton. Veja VALIDACAO.md.
 Android conectado ao CRUD de dispositivos: projeto ../ENTEC. A autenticação e os recursos físicos de proteção ainda não estão implementados.
-Pendentes: publicação no repositório GitHub, envio do link no AVA e preparação/apresentação pelos integrantes.
-Leia cada camada, execute os exemplos e faça alterações que consiga explicar. A contribuição e a apresentação de cada integrante são parte da avaliação.
+Em andamento: publicação no repositório GitHub.
+Pendentes: envio do link no AVA e preparação/apresentação pelos integrantes.
+
