@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="4.0">
+  <display-name>SafeTag API</display-name>
+  <servlet><servlet-name>dispositivos</servlet-name><servlet-class>br.com.safetag.controller.DispositivoController</servlet-class></servlet>
+  <servlet-mapping><servlet-name>dispositivos</servlet-name><url-pattern>/api/dispositivos/*</url-pattern></servlet-mapping>
+</web-app>

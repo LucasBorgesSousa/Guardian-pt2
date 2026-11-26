@@ -1,0 +1,11 @@
+# Validação em 13/11/2026
+- Maven package: sucesso; WAR gerado.
+- Cinco testes de regras: aprovados.
+- Cinco testes HTTP no Tomcat 9.0.123 com MySQL 8.4.13 real: aprovados, nenhum ignorado.
+- Teste adicional do Singleton com MySQL real: mesma instância da fábrica e conexões independentes; fechar uma mantém a outra utilizável. Total atualizado: 11 testes, 0 falhas, 0 erros, 0 ignorados.
+- Cobertura: CRUD completo, PUT sem alterações, persistência de alterações, tag duplicada no POST e PUT, exclusão, inexistência, JSON malformado e tipos inválidos, métodos e ids inválidos, corpo excessivo, Content-Type, SQL recebido como texto.
+- Pacote WAR implantado no Tomcat local: POST 201, GET 200 e DELETE 204 confirmados. Banco de demonstração permaneceu vazio após o teste.
+- MySQL local na porta 3307 e API na porta 8081, ambos limitados a 127.0.0.1.
+- Integração Android validada: dois testes no emulador aprovados (CRUD completo com MySQL e leitura no painel); cadastro e exclusão pelos botões também conferidos. Registros de teste removidos.
+- Não testados: carga, acesso remoto e autenticação. Não há autenticação implementada.
+- GitHub e AVA ainda não publicados/enviados.

@@ -1,0 +1,146 @@
+{
+  "info": {
+    "name": "SafeTag API — CRUD de dispositivos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081/safetag-api"
+    },
+    {
+      "key": "id",
+      "value": ""
+    },
+    {
+      "key": "codigoTag",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Cadastrar",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/dispositivos",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Celular de demonstração\",\n  \"modelo\": \"Galaxy S23\",\n  \"codigoTag\": \"TAG-{{$timestamp}}\",\n  \"ativo\": true\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status 201\", () => pm.response.to.have.status(201));",
+              "if (pm.response.code === 201) { const d = pm.response.json(); pm.collectionVariables.set(\"id\", d.id); pm.collectionVariables.set(\"codigoTag\", d.codigoTag); }"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Listar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/dispositivos"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status 200\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consultar",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/dispositivos/{{id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status 200\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Editar",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/api/dispositivos/{{id}}",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Celular atualizado\",\n  \"modelo\": \"Moto G\",\n  \"codigoTag\": \"{{codigoTag}}\",\n  \"ativo\": false\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status 200\", () => pm.response.to.have.status(200));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Excluir",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "{{baseUrl}}/api/dispositivos/{{id}}"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status 204\", () => pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
